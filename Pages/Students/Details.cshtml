@@ -1,0 +1,60 @@
+@page
+@model dwdm_pws2_gym.Pages.Students.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.RegistrationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.RegistrationDate)
+        </dd>
+        <dd><br /></dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Registrations)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Sport</th>
+                    <th>Weekly Hours</th>
+                </tr>
+                @foreach (var item in Model.Student.Registrations)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sport.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sport.WeeklyHours)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Student.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
