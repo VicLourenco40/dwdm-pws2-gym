@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using dwdm_pws2_gym.Data;
 using dwdm_pws2_gym.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dwdm_pws2_gym.Pages.Students
 {
+    //[AllowAnonymous]
     public class IndexModel : PageModel
     {
         private readonly dwdm_pws2_gym.Data.GymContext _context;
